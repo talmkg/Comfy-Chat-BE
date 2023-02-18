@@ -4,6 +4,7 @@ const io = require("socket.io")(httpServer, {
   cors: {
     origin: process.env.WEB,
     origin: process.env.WEBTWO,
+    origin: "http://localhost:3000/",
   },
 });
 
