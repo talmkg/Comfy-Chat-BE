@@ -1,7 +1,9 @@
+require("dotenv").config();
 const httpServer = require("http").createServer();
 const io = require("socket.io")(httpServer, {
   cors: {
-    origin: "https://comfychat.vercel.app",
+    origin: process.env.WEB,
+    origin: process.env.WEBTWO,
   },
 });
 
@@ -61,7 +63,7 @@ io.on("connection", (socket) => {
   });
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 httpServer.listen(PORT, () =>
   console.log(`server listening at http://localhost:${PORT}`)
