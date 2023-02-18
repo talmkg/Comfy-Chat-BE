@@ -2,9 +2,14 @@ require("dotenv").config();
 const httpServer = require("http").createServer();
 const io = require("socket.io")(httpServer, {
   cors: {
-    origin: process.env.WEB,
-    origin: process.env.WEBTWO,
-    origin: "http://localhost:3000/",
+    origin: [
+      process.env.WEB,
+      process.env.WEBTWO,
+      "http://localhost:3000/",
+      "http://localhost:3000",
+      "http://localhost:3001/",
+      "http://localhost:3001",
+    ],
   },
 });
 
